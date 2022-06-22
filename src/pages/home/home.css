@@ -1,0 +1,18 @@
+.users {
+  background: url("../../assets/3dusersilus.png") center;
+  background-size: cover;
+}
+.products {
+  background: url("../../assets/productilus.png") center;
+  background-size: cover;
+}
+.categories {
+  background: url("../../assets/categoryilus.png") center;
+  background-size: cover;
+}
+.transporter-items {
+  @apply aspect-auto h-40 w-64 overflow-hidden rounded-lg  md:aspect-square;
+  box-shadow: -14px 14px 45px 6px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: -14px 14px 45px 6px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: -14px 14px 45px 6px rgba(0, 0, 0, 0.6);
+}

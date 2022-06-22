@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import { Menu, Burger, Home } from "./pages/index";
 
 function App() {
+  const [isShowMenu, setIsShowMenu] = useState(false);
+
+  const showMenuHandler = () => {
+    setIsShowMenu(!isShowMenu);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="grid h-auto min-h-screen grid-cols-12">
+      <Menu isShowMenu={isShowMenu} setIsShowMenu={setIsShowMenu} />
+      <div className="col-span-12 bg-[#f7f7f7] md:col-span-10 ">
+        <Burger showMenuHandler={showMenuHandler} isShowMenu={isShowMenu} />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
     </div>
   );
 }
