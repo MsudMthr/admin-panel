@@ -1,0 +1,3 @@
+.userDetail {
+    @apply mx-2 flex-auto text-left sm:text-center;
+}

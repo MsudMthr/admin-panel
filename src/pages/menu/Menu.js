@@ -7,7 +7,7 @@ const Menu = ({ isShowMenu, setIsShowMenu }) => {
   return (
     <>
       <div
-        className={`menu-container z-10 transition ${
+        className={`menu-container fixed top-0 left-0 z-20 transition md:static ${
           isShowMenu ? " translate-x-0" : "-translate-x-full md:translate-x-0 "
         }`}
       >
@@ -17,9 +17,7 @@ const Menu = ({ isShowMenu, setIsShowMenu }) => {
       <button
         onClick={() => setIsShowMenu(!isShowMenu)}
         className={`md:hidden ${
-          isShowMenu
-            ? "absolute z-0 h-screen w-screen bg-gray-700/40 "
-            : "hidden"
+          isShowMenu ? "fixed  z-10 h-screen w-screen bg-gray-700/40 " : "hidden"
         }`}
       ></button>
     </>

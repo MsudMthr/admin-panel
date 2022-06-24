@@ -4,11 +4,16 @@
 @tailwind utilities;
 @import url("./pages/menu/Menu.css");
 @import url("./pages/home/home.css");
+@import url("./pages/users/users.css");
 
 html {
   font-family: "Poppins", sans-serif;
 }
 
+.rainbow {
+  background: url("./assets/colorCircle.jpg") center;
+  background-size: cover;
+}
 
 .transition {
   transition: 0.5s all;
