@@ -6,6 +6,7 @@ import SearchData from "../../components/SearchData";
 import UserCard from "../../shared/UserCard";
 import getUser from "./../../Redux/Users/usersAction";
 import useTitle from './../../hook/useTitle';
+import Loading from "../../shared/Loading";
 const Users = () => {
   const dispatch = useDispatch();
   const usersState = useSelector((state) => state.usersState);
@@ -34,7 +35,7 @@ const Users = () => {
             </Link>
           ))
         ) : (
-          <p>Loading ...</p>
+          <Loading />
         )}
       </div>
     </div>
