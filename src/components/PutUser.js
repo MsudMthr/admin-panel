@@ -1,28 +1,40 @@
+import axios from "axios";
 import React, { useState } from "react";
 import FormInput from "./FormInput";
 
-const PutUser = ({ setIsShowPutForm }) => {
+const PutUser = ({ setIsShowPutForm, id, setUser }) => {
   const [updateData, setUpdateData] = useState({
     name: "",
     email: "",
     number: "",
     password: "",
     password_repeat: "",
-    number: "",
   });
   const changeHandler = (e) => {
     setUpdateData({ ...updateData, [e.target.id]: e.target.value });
-    console.log(updateData);
   };
+  const updateUserHandler = (e) => {
+    e.preventDefault();
+    axios
+      .put(`https://api.storerestapi.com/users/${id}`, {
+        updateData,
+      })
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  };
+
   return (
-    <div className=" mt-5 grid items-center max-w-lg mx-auto transition">
+    <div className=" mx-auto mt-5 grid max-w-lg items-center transition">
       <button
         onClick={() => setIsShowPutForm(false)}
-        className="rounded-tl-lg rounded-tr-lg bg-red-400"
+        className="rounded-tl-lg rounded-tr-lg bg-red-400 font-bold"
       >
         Close
       </button>
-      <form className="flex flex-col gap-3 rounded-bl-lg rounded-br-lg bg-slate-500/30 px-8 py-5 shadow-inner backdrop-blur-md">
+      <form
+        onSubmit={updateUserHandler}
+        className="flex flex-col gap-3 rounded-bl-lg rounded-br-lg bg-slate-500/30 px-8 py-5 shadow-inner backdrop-blur-md"
+      >
         <FormInput
           changeHandler={changeHandler}
           name={"Name"}
@@ -58,6 +70,9 @@ const PutUser = ({ setIsShowPutForm }) => {
           value={updateData.password_repeat}
           type="password"
         />
+        <button className="rounded bg-green-400 " type="submit">
+          Update
+        </button>
       </form>
     </div>
   );
