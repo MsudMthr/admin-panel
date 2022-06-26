@@ -1,5 +1,6 @@
-export const splitId = (id) => {
-  const splitId = id.split(":");
-  const newId = `${splitId[1]}`;
-  return newId;
+const slugSplitter = (slug) => {
+  const slugArr = slug.split("-");
+  return slugArr;
 };
+
+export { slugSplitter };

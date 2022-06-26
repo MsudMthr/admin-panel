@@ -13,7 +13,7 @@ const productReducer = (state = initialState, action) => {
     case "GET_PRODUCTS_SUCCESS":
       return {
         isLoading: false,
-        users: action.payload,
+        products: action.payload,
       };
     case "GET_PRODUCTS_FAILURE":
       return {
