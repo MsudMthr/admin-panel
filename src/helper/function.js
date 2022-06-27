@@ -3,4 +3,10 @@ const slugSplitter = (slug) => {
   return slugArr;
 };
 
-export { slugSplitter };
+const joinTitle = (title) => {
+  const titleArray = title.split(" ");
+  const joinedTitle = titleArray.join("-");
+  return joinedTitle;
+};
+
+export { slugSplitter, joinTitle };

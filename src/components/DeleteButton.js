@@ -1,13 +1,13 @@
 import React from "react";
 import axios from "axios";
 
-const DeleteButton = ({ data, id, setIsDeletedUser }) => {
+const DeleteButton = ({ data, id, setIsDeletedData }) => {
   const deleteUserHandler = () => {
-    const confirm = window.confirm("Are You Sure for Delete User ? ");
+    const confirm = window.confirm(`Are You Sure for Delete ${data} ? `);
     if (confirm) {
       axios.delete(`/${data}/${id}`).then((res) => {
         if (res.status === 200) {
-          setIsDeletedUser(true);
+          setIsDeletedData(true);
         }
       });
     }

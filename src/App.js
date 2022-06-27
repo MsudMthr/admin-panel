@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import { Menu, Burger, Home, Users, Products } from "./pages/index";
 import UserDetails from "./shared/UserDetails";
+import ProductDetails from "./shared/ProductDetails";
 
 function App() {
   const [isShowMenu, setIsShowMenu] = useState(false);
@@ -22,6 +23,7 @@ function App() {
           <Route path="/Users" element={<Users />} />
           <Route path="/Products" element={<Products />} />
           <Route path="/users/:_id" element={<UserDetails />} />
+          <Route path="/Products/:title" element={<ProductDetails />} />
         </Routes>
       </div>
     </div>

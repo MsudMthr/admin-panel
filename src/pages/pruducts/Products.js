@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import useTitle from "./../../hook/useTitle";
 import { useDispatch, useSelector } from "react-redux";
 import getProducts from "./../../Redux/Products/productAction";
 import SearchData from "../../components/SearchData";
 import ProductCard from "../../shared/ProductCard";
+import Loading from "../../shared/Loading";
 const Products = () => {
   useTitle("Products");
   const dispatch = useDispatch();
@@ -19,11 +21,23 @@ const Products = () => {
   );
   console.log(searchProducts);
   return (
-    <div>
+    <div className="mx-auto w-11/12">
       <SearchData setSearchText={setSearchText} />
-      {searchProducts?.map((product, index) => (
-        <ProductCard product={product} key={index} />
-      ))}
+      <div className="mx-auto grid max-w-7xl grid-cols-6 gap-3  sm:grid-cols-8 md:grid-cols-8 lg:grid-cols-12">
+        {productsState.isLoading ? (
+          <Loading />
+        ) : (
+          searchProducts?.map((product, index) => (
+            <Link
+              to={`/Products/${product.title}`}
+              className={`col-span-6 sm:col-span-4`}
+              key={index}
+            >
+              <ProductCard product={product} />
+            </Link>
+          ))
+        )}
+      </div>
     </div>
   );
 };

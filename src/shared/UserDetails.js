@@ -6,7 +6,9 @@ import TransporterButton from "./../components/TransporterButton";
 import Loading from "./Loading";
 import PutUser from "../components/PutUser";
 import DeleteButton from "../components/DeleteButton";
-import UserDeleted from "../components/UserDeleted";
+import DataDeleted from './../components/DataDeleted';
+
+
 const UserDetails = () => {
   const [user, setUser] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -32,7 +34,7 @@ const UserDetails = () => {
   return (
     <div className="mx-auto w-11/12 ">
       {isDeletedUser ? (
-        <UserDeleted />
+        <DataDeleted data={'User'} />
       ) : (
         <>
           {" "}
@@ -50,24 +52,24 @@ const UserDetails = () => {
             />
           </div>
           <div className=" mt-6 flex  flex-wrap gap-3 rounded bg-slate-300 px-3 py-5 shadow-inner">
-            <p className="userDetail">
-              <span className="opacity-60">Name : </span>
+            <p className="dataDetail">
+              <span className="opacity-60 mr-1">Name : </span>
               {name}
             </p>
-            <p className="userDetail">
-              <span className="opacity-60">Email : </span>
+            <p className="dataDetail">
+              <span className="opacity-60 mr-1">Email : </span>
               {email}
             </p>
-            <p className="userDetail">
-              <span className="opacity-60">Role : </span>
+            <p className="dataDetail">
+              <span className="opacity-60 mr-1">Role : </span>
               {role}
             </p>
-            <p className="userDetail">
-              <span className="opacity-60">Number : </span>
+            <p className="dataDetail">
+              <span className="opacity-60 mr-1">Number : </span>
               {number}
             </p>
-            <p className="userDetail">
-              <span className="opacity-60">Id : </span>
+            <p className="dataDetail">
+              <span className="opacity-60 mr-1">Id : </span>
               {_id}
             </p>
           </div>

@@ -15,6 +15,15 @@ html {
   background-size: cover;
 }
 
+.productCard {
+  background: url("./assets/productilusCard.png") center;
+  background-size: cover;
+}
+
+.dataDetail {
+  @apply mx-2 flex-auto font-semibold text-left sm:text-center;
+}
+
 .transition {
   transition: 0.5s all;
 }
