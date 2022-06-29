@@ -21,7 +21,7 @@ html {
 }
 
 .dataDetail {
-  @apply mx-2 flex-auto font-semibold text-left sm:text-center;
+  @apply font-semibold mx-2 flex-auto text-left sm:text-center;
 }
 
 .transition {

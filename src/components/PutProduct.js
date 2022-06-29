@@ -1,22 +1,22 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { joinTitle } from "../helper/function";
 import FormInput from "./FormInput";
 
-const PutUser = ({ setIsShowPutForm, id }) => {
+const PutProduct = ({ setIsShowPutForm, title }) => {
   const [updateData, setUpdateData] = useState({
-    name: "",
-    email: "",
-    number: "",
-    password: "",
-    password_repeat: "",
+    title: "",
+    price: +"",
+    description: "",
+    category: "",
   });
   const changeHandler = (e) => {
     setUpdateData({ ...updateData, [e.target.id]: e.target.value });
   };
-  const updateUserHandler = (e) => {
+  const updateProductHandler = (e) => {
     e.preventDefault();
     axios
-      .put(`/users/${id}`, {
+      .put(`/products/${joinTitle(title)}`, {
         updateData,
       })
       .then((res) => console.log(res.data))
@@ -32,50 +32,44 @@ const PutUser = ({ setIsShowPutForm, id }) => {
         Close
       </button>
       <form
-        onSubmit={updateUserHandler}
+        onSubmit={updateProductHandler}
         className="flex flex-col gap-3 rounded-bl-lg rounded-br-lg bg-slate-500/30 px-8 py-5 shadow-inner backdrop-blur-md"
       >
         <FormInput
           changeHandler={changeHandler}
-          name={"Name"}
-          id="name"
-          value={updateData.name}
+          name={"Title"}
+          id="title"
+          value={updateData.title}
           type="text"
         />
         <FormInput
           changeHandler={changeHandler}
-          name={"Email"}
-          id="email"
-          value={updateData.email}
-          type="email"
+          name={"Price"}
+          id="price"
+          value={updateData.price}
+          type="text"
         />
         <FormInput
           changeHandler={changeHandler}
-          name={"Number"}
-          id="number"
-          value={updateData.number}
-          type="number"
+          name={"description"}
+          id="description"
+          value={updateData.description}
+          type="text"
         />
         <FormInput
           changeHandler={changeHandler}
-          name={"Password"}
-          id="password"
-          value={updateData.password}
-          type="password"
+          name={"category (id)"}
+          id="category"
+          value={updateData.category}
+          type="text"
         />
-        <FormInput
-          changeHandler={changeHandler}
-          name={"Confirm password"}
-          id="password_repeat"
-          value={updateData.password_repeat}
-          type="password"
-        />
+
         <button className="rounded bg-green-400 " type="submit">
-          Update
+          Update Product
         </button>
       </form>
     </div>
   );
 };
 
-export default PutUser;
+export default PutProduct;

@@ -21,7 +21,7 @@ const Products = () => {
   );
   console.log(searchProducts);
   return (
-    <div className="mx-auto w-11/12">
+    <div className="mx-auto w-11/12 pt-2">
       <SearchData setSearchText={setSearchText} />
       <div className="mx-auto grid max-w-7xl grid-cols-6 gap-3  sm:grid-cols-8 md:grid-cols-8 lg:grid-cols-12">
         {productsState.isLoading ? (
