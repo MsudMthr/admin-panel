@@ -1,3 +1,7 @@
 .menu-container {
   @apply absolute  top-0 left-0 min-h-screen w-48 bg-[#1b1c1e] md:static md:col-span-2 md:h-auto md:w-auto;
 }
+
+.menuLink {
+  @apply text-menu after:absolute after:bottom-0 after:left-0  after:h-0.5 after:w-0  after:rounded-xl after:bg-white/70 after:transition-all after:duration-500 after:ease-in after:content-[''] after:hover:left-1 after:hover:w-3/4;
+}
