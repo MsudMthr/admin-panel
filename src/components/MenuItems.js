@@ -23,6 +23,11 @@ const MenuItems = () => {
             Products
           </Link>
         </div>
+        <div className="relative">
+          <Link className="menuLink" to={"/Charts"}>
+            Charts
+          </Link>
+        </div>
         {/* <Link className="text-menu" to={"/Categories"}>
           Categories
         </Link> */}

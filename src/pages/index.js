@@ -3,4 +3,5 @@ import Burger from "../components/Burger";
 import Home from "./home/Home";
 import Products from "./pruducts/Products";
 import Users from "./users/Users";
-export { Menu, Burger, Home, Users ,Products};
+import Charts from "./charts/Charts";
+export { Menu, Burger, Home, Users, Products, Charts };

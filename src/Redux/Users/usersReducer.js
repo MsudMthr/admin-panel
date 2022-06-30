@@ -9,13 +9,11 @@ const userReduce = (state = initialState, action) => {
     case "GET_USERS_REQUEST":
       return {
         isLoading: true,
-        
       };
     case "GET_USERS_SUCCESS":
       return {
         isLoading: false,
         users: action.payload,
-        ...state,
       };
     case "GET_USERS_FAILURE":
       return {
