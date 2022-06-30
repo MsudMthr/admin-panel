@@ -6,6 +6,7 @@ import getUser from "./../../Redux/Users/usersAction";
 import useApi from "./../../hook/useApi";
 import { useDispatch, useSelector } from "react-redux";
 import TransporterButton from "../../components/TransporterButton";
+import Loading from "./../../shared/Loading";
 const Charts = () => {
   //*  get role of users and set to array for chart data
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const Charts = () => {
       ]);
     });
   }, [data]);
-
+  if (isLoading || !usersRole.length) return <Loading />;
   return (
     <div className="mx-auto w-11/12">
       <div className="mx-auto flex w-full flex-col items-center justify-center gap-5 md:flex-row md:justify-around  ">
