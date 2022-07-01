@@ -6,8 +6,7 @@ import TransporterButton from "./../components/TransporterButton";
 import Loading from "./Loading";
 import PutUser from "../components/PutUser";
 import DeleteButton from "../components/DeleteButton";
-import DataDeleted from './../components/DataDeleted';
-
+import DataDeleted from "./../components/DataDeleted";
 
 const UserDetails = () => {
   const [user, setUser] = useState([]);
@@ -34,7 +33,7 @@ const UserDetails = () => {
   return (
     <div className="mx-auto w-11/12 ">
       {isDeletedUser ? (
-        <DataDeleted data={'User'} />
+        <DataDeleted data={"User"} />
       ) : (
         <>
           {" "}
@@ -53,23 +52,23 @@ const UserDetails = () => {
           </div>
           <div className=" mt-6 flex  flex-wrap gap-3 rounded bg-slate-300 px-3 py-5 shadow-inner">
             <p className="dataDetail">
-              <span className="opacity-60 mr-1">Name : </span>
+              <span className="mr-1 opacity-60">Name : </span>
               {name}
             </p>
             <p className="dataDetail">
-              <span className="opacity-60 mr-1">Email : </span>
+              <span className="mr-1 opacity-60">Email : </span>
               {email}
             </p>
             <p className="dataDetail">
-              <span className="opacity-60 mr-1">Role : </span>
+              <span className="mr-1 opacity-60">Role : </span>
               {role}
             </p>
             <p className="dataDetail">
-              <span className="opacity-60 mr-1">Number : </span>
+              <span className="mr-1 opacity-60">Number : </span>
               {number}
             </p>
             <p className="dataDetail">
-              <span className="opacity-60 mr-1">Id : </span>
+              <span className="mr-1 opacity-60">Id : </span>
               {_id}
             </p>
           </div>

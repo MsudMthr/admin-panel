@@ -7,8 +7,10 @@ import useApi from "./../../hook/useApi";
 import { useDispatch, useSelector } from "react-redux";
 import TransporterButton from "../../components/TransporterButton";
 import Loading from "./../../shared/Loading";
+import useTitle from './../../hook/useTitle';
 const Charts = () => {
   //*  get role of users and set to array for chart data
+  useTitle("Charts")
   const dispatch = useDispatch();
   const [usersRole, setUsersRole] = useState([]);
   const users = useSelector((state) => state.usersState.users);

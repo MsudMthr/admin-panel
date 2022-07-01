@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 
 import usersBannerImage from "../assets/user.jpg";
 import productsBannerImage from "../assets/products.png";
-import categoriesBannerImage from "../assets/category.png";
+import chartBannerGif from "../assets/chartGif.mp4";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
@@ -22,7 +22,7 @@ const Banner = () => {
         disableOnInteraction: false,
       }}
       modules={[Pagination, Autoplay]}
-      className="mySwiper mt-3 z-0"
+      className="mySwiper z-0 mt-3"
     >
       <SwiperSlide>
         <div className="mx-auto flex h-40 w-5/6 items-center justify-around rounded-lg bg-[#f94045] shadow-lg sm:h-52 md:h-60">
@@ -65,23 +65,24 @@ const Banner = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="mx-auto flex h-40 w-5/6 items-center justify-around rounded-lg bg-[#27272b] shadow-lg sm:h-52 md:h-60">
+        <div className="mx-auto flex h-40 w-5/6 items-center justify-around rounded-lg bg-[#2a2a34] shadow-lg sm:h-52 md:h-60">
           <div className="pl-2">
             <h3 className="text-md mb-3 font-bold  text-white md:text-xl">
-              Edit & Manage Users
+              Products & Users Charts
             </h3>
             <Link
-              to={"/Categories"}
+              to={"/Charts"}
               className="rounded bg-[#c48375] px-2 py-1 font-semibold"
             >
-              Users Panel
+              Charts
             </Link>
           </div>
-          <img
-            src={categoriesBannerImage}
-            alt="edit categories "
+          <video
+            src={chartBannerGif}
             className="w-40 sm:w-52 md:w-72  "
-          />
+            autoPlay
+            muted
+          ></video>
         </div>
       </SwiperSlide>
     </Swiper>

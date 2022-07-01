@@ -21,9 +21,18 @@ html {
 }
 
 .dataDetail {
-  @apply font-semibold mx-2 flex-auto text-left sm:text-center;
+  @apply mx-2 flex-auto text-left font-semibold sm:text-center;
 }
 
 .transition {
   transition: 0.5s all;
 }
+/* 
+.chart-bg-gradient {
+  background: rgb(4, 5, 7);
+  background: linear-gradient(
+    128deg,
+    rgba(4, 5, 7, 1) 62%,
+    rgba(57, 65, 84, 1) 92%
+  );
+} */

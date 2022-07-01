@@ -6,7 +6,7 @@ const PutUser = ({ setIsShowPutForm, id }) => {
   const [updateData, setUpdateData] = useState({
     name: "",
     email: "",
-    number: "",
+    number: +"",
     password: "",
     password_repeat: "",
   });

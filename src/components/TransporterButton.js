@@ -14,9 +14,9 @@ const TransporterButton = () => {
           Products
         </h6>
       </Link>
-      <Link to={"/Categories"}  className="transporter-items categories">
+      <Link to={"/Charts"}  className="transporter-items charts">
         <h6 className="flex h-full w-full items-center justify-center text-xl font-black text-white drop-shadow-2xl backdrop-blur-sm">
-          Categories
+          Charts
         </h6>
       </Link>
     </div>
