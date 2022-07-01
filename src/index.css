@@ -1,13 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto:wght@100;300;400;500;700;900&family=Sedgwick+Ave&family=Signika+Negative:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import url("./pages/menu/Menu.css");
 @import url("./pages/home/home.css");
 @import url("./pages/users/users.css");
 
 html {
   font-family: "Poppins", sans-serif;
+}
+
+/* *set scrollBar for site */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(248, 248, 248);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(35, 35, 35);
+  border-radius: 20px;
+  border: 1px solid rgb(184, 184, 184);
 }
 
 .rainbow {
@@ -27,12 +44,3 @@ html {
 .transition {
   transition: 0.5s all;
 }
-/* 
-.chart-bg-gradient {
-  background: rgb(4, 5, 7);
-  background: linear-gradient(
-    128deg,
-    rgba(4, 5, 7, 1) 62%,
-    rgba(57, 65, 84, 1) 92%
-  );
-} */

@@ -60,7 +60,7 @@ const Register = () => {
             Name
           </label>
           <input
-            className="m-1 rounded-sm px-2 outline-none"
+            className="m-1 rounded-sm px-2 py-0.5 outline-none ring-1 ring-inset ring-black/25 transition focus:ring-black/75"
             id="name"
             name="name"
             type="text"
@@ -77,7 +77,7 @@ const Register = () => {
             Email Address
           </label>
           <input
-            className="m-1 rounded-sm px-2 outline-none"
+            className="m-1 rounded-sm px-2 py-0.5 outline-none ring-1 ring-inset ring-black/25 transition focus:ring-black/75"
             id="email"
             name="email"
             type="email"
@@ -94,7 +94,7 @@ const Register = () => {
             Nember
           </label>
           <input
-            className="m-1 rounded-sm px-2 outline-none"
+            className="m-1 rounded-sm px-2 py-0.5 outline-none ring-1 ring-inset ring-black/25 transition focus:ring-black/75"
             id="number"
             name="number"
             type="number"
@@ -111,7 +111,7 @@ const Register = () => {
             Password
           </label>
           <input
-            className="m-1 rounded-sm px-2 outline-none"
+            className="m-1 rounded-sm px-2 py-0.5 outline-none ring-1 ring-inset ring-black/25 transition focus:ring-black/75"
             id="password"
             name="password"
             type="password"
@@ -128,7 +128,7 @@ const Register = () => {
             Confirm Password
           </label>
           <input
-            className="m-1 rounded-sm px-2 outline-none"
+            className="m-1 rounded-sm px-2 py-0.5 outline-none ring-1 ring-inset ring-black/25 transition focus:ring-black/75"
             id="password_repeat"
             name="password_repeat"
             type="password"
@@ -145,9 +145,9 @@ const Register = () => {
 
         <button
           type="submit"
-          className="mx-auto w-7/12 rounded-sm bg-black/70 font-semibold text-white backdrop-blur-md"
+          className="mx-auto w-7/12 rounded-sm bg-black/75 py-0.5 font-semibold text-white backdrop-blur-md transition hover:bg-black/90"
         >
-          Submit
+          Sign Up
         </button>
       </form>
     </div>
