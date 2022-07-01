@@ -1,9 +1,19 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { Menu, Burger, Home, Users, Products, Charts } from "./pages/index";
+import {
+  Menu,
+  Burger,
+  Home,
+  Users,
+  Products,
+  Charts,
+  Auth,
+} from "./pages/index";
 import UserDetails from "./shared/UserDetails";
 import ProductDetails from "./shared/ProductDetails";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 function App() {
   const [isShowMenu, setIsShowMenu] = useState(false);
@@ -20,6 +30,10 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Auth" element={<Auth />}>
+            <Route path="/Auth/Register" element={<Register />} />
+            <Route path="/Auth/Login" element={<Login />} />
+          </Route>
           <Route path="/Users" element={<Users />} />
           <Route path="/Charts" element={<Charts />} />
           <Route path="/Products" element={<Products />} />

@@ -28,6 +28,11 @@ const MenuItems = () => {
             Charts
           </Link>
         </div>
+        <div className="relative">
+          <Link className="menuLink" to={"/Auth"}>
+            Auth
+          </Link>
+        </div>
         {/* <Link className="text-menu" to={"/Categories"}>
           Categories
         </Link> */}
