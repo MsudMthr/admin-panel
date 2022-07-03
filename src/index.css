@@ -44,3 +44,13 @@ body::-webkit-scrollbar-thumb {
 .transition {
   transition: 0.5s all;
 }
+
+.neumorphism-shadow {
+  box-shadow:  25px 25px 50px #676767,
+             -25px -25px 50px #b29b9b;
+}
+
+.neumorphism-shadow-left {
+  box-shadow:  -25px 25px 50px #676767,
+             25px -25px 50px #b29b9b;
+}

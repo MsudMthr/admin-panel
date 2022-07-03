@@ -19,7 +19,7 @@ const MenuItems = () => {
           </Link>
         </div>
         <div className="relative">
-          <Link className="menuLink" to={"/Products"}>
+          <Link className="menuLink" to={"/Products?page=1"}>
             Products
           </Link>
         </div>

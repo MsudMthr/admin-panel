@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import DoughnutChart from "../../components/DoughnutChart";
-import RadarChart from "../../components/RadarChart";
 import getUser from "./../../Redux/Users/usersAction";
 
 import useApi from "./../../hook/useApi";
 import { useDispatch, useSelector } from "react-redux";
 import TransporterButton from "../../components/TransporterButton";
 import Loading from "./../../shared/Loading";
-import useTitle from './../../hook/useTitle';
+import useTitle from "./../../hook/useTitle";
+import PolarAreaChart from "../../components/PolarArea";
 const Charts = () => {
   //*  get role of users and set to array for chart data
-  useTitle("Charts")
+  useTitle("Charts");
   const dispatch = useDispatch();
   const [usersRole, setUsersRole] = useState([]);
   const users = useSelector((state) => state.usersState.users);
@@ -44,7 +44,7 @@ const Charts = () => {
           datasets={[usersRole.length]}
           labels={["Role Customers"]}
         />
-        <RadarChart datasets={productLengthCategory} labels={categories} />
+        <PolarAreaChart datasets={productLengthCategory} labels={categories} />
       </div>
       <TransporterButton />
     </div>

@@ -1,13 +1,12 @@
 import React from "react";
 
-const Pagination = ({ currentPage, nextPage, previousPage }) => {
+const Pagination = ({ metadata }) => {
   const nextPageHandler = () => {};
   const PreviousPageHandler = () => {};
+  console.log(metadata);
   return (
-    <div>
-      <button onClick={nextPageHandler}>«</button>
-      <button>{currentPage}</button>
-      <button onClick={PreviousPageHandler}>»</button>
+    <div className="flex items-center justify-center">
+      <button>1</button>
     </div>
   );
 };

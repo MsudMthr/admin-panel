@@ -16,7 +16,7 @@ const getProducts = (page) => {
     axios
       .get(`/products?limit=10&page=${page}`)
       .then((res) => {
-        dispatch(getProductsSuccess(res.data.data));
+        dispatch(getProductsSuccess(res.data));
       })
       .catch((error) => {
         const errorMsg = error.message;

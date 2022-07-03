@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
 import Register from "../../components/Register";
 import Login from "../../components/Login";
-import TransporterButton from './../../components/TransporterButton';
+import TransporterButton from "./../../components/TransporterButton";
 const Auth = () => {
   const [pathName, setPathName] = useState("");
   return (
@@ -29,7 +29,6 @@ const Auth = () => {
       </div>
       <Outlet />
       <TransporterButton />
-      
     </>
   );
 };

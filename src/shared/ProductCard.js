@@ -16,8 +16,8 @@ const ProductCard = ({ product }) => {
           <span className="opacity-60">category:</span> {category.name}
         </p>
         <div className="flex flex-wrap gap-x-4 gap-y-1 px-1 mb-1">
-          {slugSplitter(slug).map((slug) => (
-            <p className="rounded text-xs bg-slate-400 p-0.5 shadow-inner">{slug}</p>
+          {slugSplitter(slug).map((slug,index) => (
+            <p className="rounded text-xs bg-slate-400 p-0.5 shadow-inner" key={index} >{slug}</p>
           ))}
         </div>
       </div>

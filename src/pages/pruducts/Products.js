@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import queryString from "query-string";
 import { Link } from "react-router-dom";
 import useTitle from "./../../hook/useTitle";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,16 +8,19 @@ import getProducts from "./../../Redux/Products/productAction";
 import SearchData from "../../components/SearchData";
 import ProductCard from "../../shared/ProductCard";
 import Loading from "../../shared/Loading";
+import Pagination from "../../components/Pagination";
+
 const Products = () => {
   useTitle("Products");
   const dispatch = useDispatch();
   const productsState = useSelector((state) => state.productsState);
   const [searchText, setSearchText] = useState("");
+  const pageProducs = queryString.parse(window.location.search);
   useEffect(() => {
-    dispatch(getProducts(2));
+    dispatch(getProducts(pageProducs.page));
   }, []);
-
-  const searchProducts = productsState.products?.filter((product) =>
+  console.log(productsState.products?.metadata);
+  const searchProducts = productsState.products?.data?.filter((product) =>
     product.title.toLowerCase().includes(searchText.toLowerCase())
   );
   console.log(searchProducts);
@@ -38,6 +42,7 @@ const Products = () => {
           ))
         )}
       </div>
+      <Pagination pagesData={productsState.products?.metadata} />
     </div>
   );
 };
