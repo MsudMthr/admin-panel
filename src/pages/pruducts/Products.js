@@ -15,15 +15,26 @@ const Products = () => {
   const dispatch = useDispatch();
   const productsState = useSelector((state) => state.productsState);
   const [searchText, setSearchText] = useState("");
-  const pageProducs = queryString.parse(window.location.search);
+
+  // ? complete pagination for products
+
+  const [page, setPage] = useState(queryString.parse(window.location.search));
+  // const pageProducts = queryString.parse(window.location.search);
   useEffect(() => {
-    dispatch(getProducts(pageProducs.page));
+    dispatch(getProducts(page.page));
   }, []);
+
+  useEffect(() => {
+    setPage(queryString.parse(window.location.search));
+    // dispatch(getProducts(pageProducts.page));
+  }, [page.page]);
+  console.log(page);
+
+  
   console.log(productsState.products?.metadata);
   const searchProducts = productsState.products?.data?.filter((product) =>
     product.title.toLowerCase().includes(searchText.toLowerCase())
   );
-  console.log(searchProducts);
   return (
     <div className="mx-auto w-11/12 pt-2">
       <SearchData setSearchText={setSearchText} />
