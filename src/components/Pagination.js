@@ -2,12 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Pagination = ({ pagesData }) => {
-  const nextPageHandler = () => {};
-  const PreviousPageHandler = () => {};
   return (
     <div className="my-2 flex items-center justify-center gap-2 ">
       <Link
-        to={`/products/?page=${
+        to={`/Products/?page=${
           pagesData?.currentPage - 1 >= 1 && pagesData?.currentPage - 1
         }`}
         className={`rounded bg-gray-800 px-2 py-1 font-medium text-white  ${
@@ -20,7 +18,7 @@ const Pagination = ({ pagesData }) => {
         {pagesData?.currentPage}
       </p>
       <Link
-        to={`/products/?page=${pagesData?.nextPage}`}
+        to={`/Products/?page=${pagesData?.nextPage}`}
         className={`rounded bg-gray-800 px-2 py-1 font-medium text-white ${
           !pagesData?.nextPage && "opacity-25"
         }`}

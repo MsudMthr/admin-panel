@@ -18,20 +18,19 @@ const Products = () => {
 
   // ? complete pagination for products
 
-  const [page, setPage] = useState(queryString.parse(window.location.search));
-  // const pageProducts = queryString.parse(window.location.search);
+  const [page, setPage] = useState(
+    queryString.parse(window.location.search.page)
+  );
   useEffect(() => {
     dispatch(getProducts(page.page));
   }, []);
 
-  useEffect(() => {
-    setPage(queryString.parse(window.location.search));
-    // dispatch(getProducts(pageProducts.page));
-  }, [page.page]);
-  console.log(page);
+  // useEffect(() => {
+  //   setPage(queryString.parse(window.location.search));
+  //   dispatch(getProducts(page.page));
+  //   console.log(page);
+  // }, [page.page]);
 
-  
-  console.log(productsState.products?.metadata);
   const searchProducts = productsState.products?.data?.filter((product) =>
     product.title.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -53,7 +52,7 @@ const Products = () => {
           ))
         )}
       </div>
-      <Pagination pagesData={productsState.products?.metadata} />
+      {/* <Pagination pagesData={productsState.products?.metadata} /> */}
     </div>
   );
 };
