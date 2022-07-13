@@ -30,6 +30,7 @@ export default function DeleteModal({
   const handleClose = () => setIsOpen(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const deleteUserHandler = () => {
+    console.log(id , path);
     setIsDeleted(true);
     setTimeout(() => {
       axios.delete(`/${path}/${id}`).then((res) => {

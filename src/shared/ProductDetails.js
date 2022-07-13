@@ -10,6 +10,7 @@ import TransporterButton from "../components/TransporterButton";
 import DataDeleted from "../components/DataDeleted";
 import PutProduct from "../components/PutProduct";
 import DeleteModal from "../components/DeleteModal";
+import { UseDisableButton } from "../hook/useDisableButton";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState([]);
@@ -20,14 +21,9 @@ const ProductDetails = () => {
   const { title } = useParams();
 
   const deleteButtonRef = useRef();
-  const updateProfileRef = useRef();
-  console.log(deleteButtonRef);
-  useEffect(() => {
-    if (isDeletedData) {
-      deleteButtonRef.current.disabled = true;
-      updateProfileRef.current.disabled = true;
-    }
-  }, [isDeletedData]);
+  const updateProductRef = useRef();
+
+  UseDisableButton(isDeletedData, updateProductRef, deleteButtonRef);
 
   useEffect(() => {
     axios.get(`/products/${joinTitle(title)}`).then((response) => {
@@ -41,9 +37,9 @@ const ProductDetails = () => {
     <div className="mx-auto w-11/12 ">
       <div className="my-2 flex justify-between">
         <button
-          ref={updateProfileRef}
+          ref={updateProductRef}
           onClick={() => setIsShowPutForm(true)}
-          className=" rounded bg-slate-800 disabled:bg-slate-400/80 px-2 py-1 font-bold text-white transition focus:ring-2 focus:ring-indigo-900 focus:ring-offset-2 md:ml-0"
+          className=" rounded bg-slate-800 px-2 py-1 font-bold text-white transition focus:ring-2 focus:ring-indigo-900 focus:ring-offset-2 disabled:bg-slate-400/80 md:ml-0"
         >
           Update Product
         </button>
