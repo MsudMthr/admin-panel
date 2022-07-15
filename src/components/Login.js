@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import axios from "axios";
 const Login = () => {
+  const [loginError, setLoginError] = useState("");
+
   const validate = (values) => {
     const errors = {};
 
@@ -26,15 +28,17 @@ const Login = () => {
     },
     validate,
     onSubmit: (values) => {
-      alert(JSON.stringify(values , null , 2))
       axios
         .post("/auth/login", values)
         .then((response) => console.log(response.data))
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.error(err);
+          setLoginError(err.response.data.message);
+        });
     },
   });
   return (
-    <div className="flex min-h-screen w-full items-center justify-center ">
+    <div className="flex min-h-screen w-full flex-col items-center justify-center ">
       <form
         onSubmit={formik.handleSubmit}
         className={"my-8 flex w-8/12 flex-col gap-2"}
@@ -82,6 +86,9 @@ const Login = () => {
           Login
         </button>
       </form>
+      {loginError && (
+        <p className="font-semibold text-red-500 ">{loginError}</p>
+      )}
     </div>
   );
 };

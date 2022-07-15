@@ -9,6 +9,11 @@ const MenuItems = () => {
     setActiveLink(e.target.innerText);
   };
 
+  useEffect(() => {
+    setActiveLink(pathLocation());
+    console.log(pathLocation());
+  }, [pathLocation()]);
+
   return (
     <div className="flex flex-col px-3">
       <p className="text-menu/40">Menu</p>
@@ -16,7 +21,8 @@ const MenuItems = () => {
       <div className="mt-4 flex flex-col gap-2 ">
         <div
           className={`relative  transition ${
-            activeLink === "Home" && "translate-x-3 border-r-2 border-red-500"
+            activeLink === "Home" &&
+            "mr-1 translate-x-3 border-r-2 border-red-500"
           }`}
         >
           <Link onClick={activeLinkHandler} className={`menuLink`} to={"/"}>
@@ -25,7 +31,8 @@ const MenuItems = () => {
         </div>
         <div
           className={`relative  transition ${
-            activeLink === "Users" && "translate-x-3 border-r-2 border-red-500"
+            activeLink === "Users" &&
+            "mr-1 translate-x-3 border-r-2 border-red-500"
           }`}
         >
           <Link
@@ -38,7 +45,8 @@ const MenuItems = () => {
         </div>
         <div
           className={`relative  transition ${
-            activeLink === "Products" && "translate-x-3 border-r-2 border-red-500"
+            activeLink === "Products" &&
+            "mr-1 translate-x-3 border-r-2 border-red-500"
           }`}
         >
           <Link
@@ -51,7 +59,8 @@ const MenuItems = () => {
         </div>
         <div
           className={`relative  transition ${
-            activeLink === "Charts" && "translate-x-3 border-r-2 border-red-500"
+            activeLink === "Charts" &&
+            "mr-1 translate-x-3 border-r-2 border-red-500"
           }`}
         >
           <Link
@@ -64,7 +73,8 @@ const MenuItems = () => {
         </div>
         <div
           className={`relative  transition ${
-            activeLink === "Auth" && "translate-x-3 border-r-2 border-red-500"
+            activeLink === "Auth" &&
+            "mr-1 translate-x-3 border-r-2 border-red-500"
           }`}
         >
           <Link onClick={activeLinkHandler} className={`menuLink`} to={"/Auth"}>

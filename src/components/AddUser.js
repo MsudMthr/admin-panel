@@ -33,7 +33,7 @@ const validate = (values) => {
   return errors;
 };
 
-const AddUser = () => {
+const AddUser = ({ setIsUserAdded }) => {
   const [isShowForm, setIsShowForm] = useState(false);
   const [addUserError, setAddUserError] = useState("");
   const showFormHandler = () => {
@@ -52,7 +52,10 @@ const AddUser = () => {
     onSubmit: (values) => {
       axios
         .post("/users", values)
-        .then((response) => console.log(response.data))
+        .then((response) => {
+          console.log(response.data);
+          setIsUserAdded(true);
+        })
         .catch((err) => setAddUserError(err.message));
     },
   });
@@ -62,7 +65,7 @@ const AddUser = () => {
       {/* show form button */}
       <button
         onClick={showFormHandler}
-        className="rounded bg-black/70 px-2 py-1 font-semibold text-white"
+        className="w-28 rounded bg-black/70 px-2 py-1 font-semibold text-white"
       >
         Add user
       </button>
@@ -120,7 +123,7 @@ const AddUser = () => {
               className="m-1 rounded-sm px-2 py-0.5 outline-none ring-1 ring-inset ring-black/25 transition focus:ring-black/75"
               id="number"
               name="number"
-              type="number"
+              type="text"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.number}

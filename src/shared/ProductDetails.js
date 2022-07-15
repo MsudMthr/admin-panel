@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import useTitle from "./../hook/useTitle";
 //functions
-import { joinTitle, slugSplitter } from "../helper/function";
+import { joinTitle } from "../helper/function";
 //components
 import Loading from "./Loading";
 import TransporterButton from "../components/TransporterButton";
@@ -91,7 +91,7 @@ const ProductDetails = () => {
                 </p>
                 <p className="dataDetail">
                   <span className="mr-1 opacity-60">Tags :</span>
-                  {slugSplitter(slug)}
+                  {slug}
                 </p>
               </div>
               {isShowPutForm && (
@@ -100,8 +100,8 @@ const ProductDetails = () => {
             </>
           )}
           <div className="mt-5 ">
-            <h1 className="font-black text-center text-xl">Suggestion</h1>
-          <SuggestionProducts slug={category?.slug} />
+            <h1 className="text-center text-xl font-black">Suggestion</h1>
+            <SuggestionProducts slug={category?.slug} />
           </div>
           <TransporterButton />
         </>

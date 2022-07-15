@@ -17,7 +17,7 @@ const SuggestionProducts = ({ slug }) => {
   return (
     <div className="mt-3 flex  flex-wrap justify-center overflow-hidden rounded ">
       {products?.map((product) => (
-        <SuggestionCard product={product} slug={slug} />
+        <SuggestionCard key={product._id} product={product} slug={slug} />
       ))}
     </div>
   );
