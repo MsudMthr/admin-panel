@@ -1,20 +1,31 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { joinTitle } from "../helper/function";
 import FormInput from "./FormInput";
 
 const PutProduct = ({ setIsShowPutForm, title }) => {
+  const [categories, setCategories] = useState(null);
   const [updateData, setUpdateData] = useState({
     title: "",
     price: +"",
     description: "",
     category: "",
   });
+
+  useEffect(() => {
+    axios
+      .get("/categories")
+      .then((res) => setCategories(res.data.data))
+      .catch((err) => console.error(err));
+  }, []);
+
   const changeHandler = (e) => {
     setUpdateData({ ...updateData, [e.target.id]: e.target.value });
   };
+
   const updateProductHandler = (e) => {
     e.preventDefault();
+    console.log(updateData);
     axios
       .put(`/products/${joinTitle(title)}`, {
         updateData,
@@ -56,13 +67,19 @@ const PutProduct = ({ setIsShowPutForm, title }) => {
           value={updateData.description}
           type="text"
         />
-        <FormInput
-          changeHandler={changeHandler}
-          name={"category (id)"}
-          id="category"
-          value={updateData.category}
-          type="text"
-        />
+        <div className="flex flex-col">
+          <label htmlFor="category">category</label>
+          <select name="" id="category">
+            {categories?.map((category) => (
+              <option
+                onClick={() => setUpdateData({ category: category._id })}
+                value={category?._id}
+              >
+                {category?.name}
+              </option>
+            ))}
+          </select>
+        </div>
 
         <button className="rounded bg-green-400 " type="submit">
           Update Product

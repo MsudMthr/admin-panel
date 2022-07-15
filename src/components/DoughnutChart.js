@@ -24,7 +24,8 @@ const DoughnutChart = ({ labels, datasets }) => {
   return (
     <div className="w-full md:w-1/2">
       <h2 className="my-2 text-center font-bold capitalize">
-        The roles of the users are taken from the data and shown in the doughnut chart
+        The roles of the users are taken from the data and shown in the doughnut
+        chart
       </h2>
       <Doughnut data={data} />
     </div>

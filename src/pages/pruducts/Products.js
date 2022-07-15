@@ -9,6 +9,7 @@ import SearchData from "../../components/SearchData";
 import ProductCard from "../../shared/ProductCard";
 import Loading from "../../shared/Loading";
 import Pagination from "../../components/Pagination";
+import { screenWidth } from "./../../helper/screenWidth";
 
 const Products = () => {
   useTitle("Products");
@@ -36,7 +37,10 @@ const Products = () => {
   );
   return (
     <div className="mx-auto w-11/12 pt-2">
-      <SearchData setSearchText={setSearchText} />
+      <div className="my-2 flex items-center justify-between">
+        <SearchData setSearchText={setSearchText} />
+        {screenWidth() > 768 && <Pagination />}
+      </div>
       <div className="mx-auto grid max-w-7xl grid-cols-6 gap-3  sm:grid-cols-8 md:grid-cols-8 lg:grid-cols-12">
         {productsState.isLoading ? (
           <Loading />
@@ -52,7 +56,7 @@ const Products = () => {
           ))
         )}
       </div>
-      {/* <Pagination pagesData={productsState.products?.metadata} /> */}
+      {screenWidth() < 768 && <Pagination />}
     </div>
   );
 };

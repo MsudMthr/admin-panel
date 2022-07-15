@@ -50,7 +50,6 @@ const AddUser = () => {
     },
     validate,
     onSubmit: (values) => {
-      console.log(values);
       axios
         .post("/users", values)
         .then((response) => console.log(response.data))
@@ -179,7 +178,11 @@ const AddUser = () => {
             Add User
           </button>
         </form>
-        {addUserError && <p className="text-red-500 font-bold w-10/12 text-center mt-2">{addUserError}</p>}
+        {addUserError && (
+          <p className="mt-2 w-10/12 text-center font-bold text-red-500">
+            {addUserError}
+          </p>
+        )}
       </div>
       {/* close form button */}
       <button

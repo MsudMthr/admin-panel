@@ -1,31 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import ReactPaginate from "react-paginate";
+import { useDispatch } from "react-redux";
+import getProducts from "./../Redux/Products/productAction";
+import queryString from "query-string";
 
-const Pagination = ({ pagesData }) => {
+const Pagination = () => {
+  const [pageCount, setPageCount] = useState(3);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const dispatch = useDispatch();
+
+  const pageChangeHandler = (selectedObject) => {
+    setCurrentPage(selectedObject.selected + 1);
+
+    dispatch(getProducts(currentPage));
+  };
+
   return (
-    <div className="my-2 flex items-center justify-center gap-2 ">
-      <Link
-        to={`/Products/?page=${
-          pagesData?.currentPage - 1 >= 1 && pagesData?.currentPage - 1
-        }`}
-        className={`rounded bg-gray-800 px-2 py-1 font-medium text-white  ${
-          pagesData?.currentPage - 1 < 1 && "opacity-25 "
-        }`}
-      >
-        Previous
-      </Link>
-      <p className="rounded bg-gray-800 px-2 py-1 font-medium text-white">
-        {pagesData?.currentPage}
-      </p>
-      <Link
-        to={`/Products/?page=${pagesData?.nextPage}`}
-        className={`rounded bg-gray-800 px-2 py-1 font-medium text-white ${
-          !pagesData?.nextPage && "opacity-25"
-        }`}
-      >
-        Next
-      </Link>
-    </div>
+    <ReactPaginate
+      pageCount={pageCount}
+      pageRange={3}
+      marginPagesDisplayed={2}
+      onPageChange={pageChangeHandler}
+      containerClassName={"container"}
+      previousLinkClassName={
+        "page bg-slate-900 text-white px-2 py-1 font-bold rounded"
+      }
+      breakClassName={"page "}
+      nextLinkClassName={
+        "page bg-slate-900 text-white px-2 py-1 font-bold rounded"
+      }
+      pageClassName={"page bg-slate-300 px-2 py-1 rounded"}
+      disabledClassNae={"disabled bg-slate-900/50"}
+      activeClassName={"active bg-slate-500 font-bold"}
+      className={"my-4 flex items-center justify-center gap-4 md:my-0"}
+    />
   );
 };
 

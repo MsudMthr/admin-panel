@@ -5,7 +5,6 @@ import axios from "axios";
 import TransporterButton from "./../components/TransporterButton";
 import Loading from "./Loading";
 import PutUser from "../components/PutUser";
-import DeleteButton from "../components/DeleteButton";
 import DataDeleted from "./../components/DataDeleted";
 import { UseDisableButton } from "../hook/useDisableButton";
 import DeleteModal from "../components/DeleteModal";
@@ -18,11 +17,11 @@ const UserDetails = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { _id } = useParams();
 
-  const deleteUserProfile = useRef();
-  const updateUserProfile = useRef();
+  const updateUserProfileRef = useRef();
+  const deleteUserProfileRef = useRef();
 
-  UseDisableButton(isDeletedUser, updateUserProfile, deleteUserProfile);
-  console.log(_id);
+  UseDisableButton(isDeletedUser, updateUserProfileRef, deleteUserProfileRef);
+
   useEffect(() => {
     axios.get(`/users/${_id}`).then((response) => {
       setUser(response.data.data);
@@ -31,32 +30,31 @@ const UserDetails = () => {
   }, []);
 
   const { name, email, role, number } = user;
-  console.log(user);
   useTitle(name, user);
   if (isLoading) return <Loading />;
   return (
     <div className="mx-auto w-11/12 ">
+      <div className="mt-3 ml-5 flex items-center justify-between">
+        <button
+          ref={updateUserProfileRef}
+          className=" rounded bg-slate-800 px-2 py-1 font-bold text-white transition focus:ring-2 focus:ring-indigo-900 focus:ring-offset-2 md:ml-0"
+          onClick={() => setIsShowPutForm(true)}
+        >
+          Update User
+        </button>
+        <button
+          ref={deleteUserProfileRef}
+          className={` rounded bg-red-500 px-2 py-1 font-bold text-white disabled:bg-red-200/80 `}
+          onClick={() => setIsOpen(true)}
+        >
+          Delete {name}
+        </button>
+      </div>
       {isDeletedUser ? (
         <DataDeleted data={"User"} />
       ) : (
         <>
           {" "}
-          <div className="mt-3 ml-5 flex items-center justify-between">
-            <button
-              ref={updateUserProfile}
-              onClick={() => setIsShowPutForm(true)}
-              className=" rounded bg-slate-800 px-2 py-1 font-bold text-white transition focus:ring-2 focus:ring-indigo-900 focus:ring-offset-2 md:ml-0"
-            >
-              Update User
-            </button>
-            <button
-              ref={deleteUserProfile}
-              className={` rounded bg-red-500 px-2 py-1 font-bold text-white disabled:bg-red-200/80 `}
-              onClick={() => setIsOpen(true)}
-            >
-              Delete {name}
-            </button>
-          </div>
           <div className=" mt-6 flex  flex-wrap gap-3 rounded bg-slate-300 px-3 py-5 shadow-inner">
             <p className="dataDetail">
               <span className="mr-1 opacity-60">Name : </span>

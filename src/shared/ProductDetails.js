@@ -11,6 +11,7 @@ import DataDeleted from "../components/DataDeleted";
 import PutProduct from "../components/PutProduct";
 import DeleteModal from "../components/DeleteModal";
 import { UseDisableButton } from "../hook/useDisableButton";
+import SuggestionProducts from "./../components/SuggestionProducts";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState([]);
@@ -98,6 +99,10 @@ const ProductDetails = () => {
               )}
             </>
           )}
+          <div className="mt-5 ">
+            <h1 className="font-black text-center text-xl">Suggestion</h1>
+          <SuggestionProducts slug={category?.slug} />
+          </div>
           <TransporterButton />
         </>
       )}
